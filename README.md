@@ -2,6 +2,11 @@
 
 Pandas-like Python package for systems monitoring
 
+### To Inatall
+```shell script
+pip install pdsys
+```
+
 ### Basic usage
 
 ```python
@@ -120,7 +125,3 @@ df[df.memory_percent > 0.9].groupby(['hostname',
 |  9 | host2      | python3                         |          3.47208 |     3 |             4 |           35.8892 |
 | 10 | host2      | systemd-journald                |         21.0484  |     1 |             1 |          217.567  |
 
-### To Inatall
-```shell script
-pip install pdsys
-```
