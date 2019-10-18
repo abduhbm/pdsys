@@ -1,6 +1,6 @@
 # pdsys
 
-Pandas-like Python package for system monitoring
+Pandas-like Python package for systems monitoring
 
 ### Basic usage
 
