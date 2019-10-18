@@ -119,3 +119,8 @@ df[df.memory_percent > 0.9].groupby(['hostname',
 |  8 | host2      | postgres                        |          1.54504 |     1 |             1 |           15.9703 |
 |  9 | host2      | python3                         |          3.47208 |     3 |             4 |           35.8892 |
 | 10 | host2      | systemd-journald                |         21.0484  |     1 |             1 |          217.567  |
+
+### To Inatall
+```shell script
+pip install pdsys
+```
