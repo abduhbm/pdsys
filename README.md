@@ -83,7 +83,7 @@ df.columns.tolist()
 
 You can query the output dataframe to get more insights about the system:
 ```python
-# getting top 5 processes for memory utilization 
+# getting top 5 processes sorted by memory utilization 
 df.sort_values(by='memory_percent', 
                ascending=False)[['name', 'memory_percent']].head(5)
 ```
