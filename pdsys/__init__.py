@@ -35,4 +35,8 @@ def report(hosts=None, np='MAX'):
         for r in p:
             results += json.loads(r)
 
-    return pd.DataFrame(results)
+    df = pd.DataFrame(results)
+    df.set_index('time', inplace=True)
+    df.index = pd.to_datetime(df.index, errors='coerce')
+
+    return df
