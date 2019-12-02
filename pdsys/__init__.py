@@ -1,3 +1,4 @@
+import os
 import json
 import multiprocessing as mp
 from pdsys import utils
@@ -9,10 +10,26 @@ def report(hosts=None, np='MAX'):
 
     if not hosts:
         r = utils.report()
-        return pd.read_json(r)
+        df = pd.read_json(r)
+        df.insert(0, 'timestamp', pd.datetime.now().replace(microsecond=0))
+        df.set_index('timestamp', inplace=True)
 
-    if not isinstance(hosts, list):
-        raise ValueError('hosts type must be list')
+        return df
+
+    if isinstance(hosts, list):
+        pass
+
+    elif isinstance(hosts, str):
+        hosts = hosts.splitlines()
+        if len(hosts) == 1 and os.path.isfile(hosts[0]):
+            with open(hosts[0], 'r') as f:
+                hosts = [h.strip() for h in f.readlines()]
+
+    elif hasattr(hosts, 'read'):
+        hosts = [h.strip() for h in hosts.readlines()]
+
+    else:
+        raise ValueError('hosts must be str, path object or file-like object')
 
     from pdsys.ssh import connect_ssh
 
@@ -36,7 +53,7 @@ def report(hosts=None, np='MAX'):
             results += json.loads(r)
 
     df = pd.DataFrame(results)
-    df.set_index('time', inplace=True)
-    df.index = pd.to_datetime(df.index, errors='coerce')
+    df.insert(0, 'timestamp', pd.datetime.now().replace(microsecond=0))
+    df.set_index('timestamp', inplace=True)
 
     return df

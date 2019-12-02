@@ -2,11 +2,9 @@ import json
 import socket
 import builtins
 import psutil
-from datetime import datetime
 
 BUILTIN_TYPES = list(dir(builtins))
 HOSTNAME = socket.gethostname()
-DATE_NOW = datetime.now().isoformat()
 
 
 def chunker_list(seq, size):
@@ -37,7 +35,6 @@ def report():
                         if type(attr_val).__name__ in dir(__builtins__):
                             p_info[f'{k}.{attr}'] = attr_val
             p_info['hostname'] = HOSTNAME
-            p_info['time'] = DATE_NOW
 
         rows.append(p_info)
 
