@@ -9,7 +9,7 @@ from shutil import rmtree
 from setuptools import setup, Command, find_packages
 
 NAME = 'pdsys'
-DESCRIPTION = 'Pandas-like Python package for systems monitoring'
+DESCRIPTION = 'Pandas-powered package for systems monitoring'
 URL = 'https://github.com/abduhbm/pdsys'
 AUTHOR = 'Abdulelah Bin Mahfoodh'
 

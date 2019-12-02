@@ -9,4 +9,3 @@ verify_ssl = true
 pandas = "*"
 psutil = "*"
 remoto = "*"
-

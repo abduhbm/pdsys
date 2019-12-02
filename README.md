@@ -1,6 +1,6 @@
 # pdsys
 
-Pandas-like Python package for systems monitoring
+Pandas-powered package for systems monitoring
 
 ### To Inatall
 ```shell script
@@ -88,8 +88,8 @@ df.columns.tolist()
 
 You can query the output dataframe to get more insights about the system:
 ```python
-# getting top 5 processes sorted by memory utilization 
-df.sort_values(by='memory_percent', 
+# getting top 5 processes sorted by memory utilization
+df.sort_values(by='memory_percent',
                ascending=False)[['name', 'memory_percent']].head(5)
 ```
 
@@ -124,4 +124,3 @@ df[df.memory_percent > 0.9].groupby(['hostname',
 |  8 | host2      | postgres                        |          1.54504 |     1 |             1 |           15.9703 |
 |  9 | host2      | python3                         |          3.47208 |     3 |             4 |           35.8892 |
 | 10 | host2      | systemd-journald                |         21.0484  |     1 |             1 |          217.567  |
-
