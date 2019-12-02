@@ -1,8 +1,9 @@
-import os
 import json
 import multiprocessing as mp
+import os
+
+from .__version__ import __version__  # noqa: F401
 from pdsys import utils
-from .__version__ import __version__
 
 
 def report(hosts=None, np='MAX'):

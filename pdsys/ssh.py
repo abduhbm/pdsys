@@ -1,7 +1,8 @@
 try:
     from remoto import connection
 except ImportError:
-    raise ImportError('remoto package needs to be installed for remote host monitoring')
+    raise ImportError('remoto package needs to be installed for remote host \
+    monitoring')
 
 from pdsys import utils
 

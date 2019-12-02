@@ -1,6 +1,7 @@
+import builtins
 import json
 import socket
-import builtins
+
 import psutil
 
 BUILTIN_TYPES = list(dir(builtins))
