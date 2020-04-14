@@ -1,6 +1,7 @@
 import json
 import multiprocessing as mp
 import os
+from datetime import datetime
 
 from .__version__ import __version__  # noqa: F401
 from pdsys import utils
@@ -12,7 +13,7 @@ def report(hosts=None, np='MAX'):
     if not hosts:
         r = utils.report()
         df = pd.read_json(r)
-        df.insert(0, 'timestamp', pd.datetime.now().replace(microsecond=0))
+        df.insert(0, 'timestamp', datetime.now().replace(microsecond=0))
         df.set_index('timestamp', inplace=True)
 
         return df
@@ -54,7 +55,7 @@ def report(hosts=None, np='MAX'):
             results += json.loads(r)
 
     df = pd.DataFrame(results)
-    df.insert(0, 'timestamp', pd.datetime.now().replace(microsecond=0))
+    df.insert(0, 'timestamp', datetime.now().replace(microsecond=0))
     df.set_index('timestamp', inplace=True)
 
     return df
