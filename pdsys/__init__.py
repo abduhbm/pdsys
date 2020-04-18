@@ -3,13 +3,15 @@ import multiprocessing as mp
 import os
 from datetime import datetime
 
+import pandas as pd
+
 from .__version__ import __version__  # noqa: F401
 from pdsys import utils
 
+LOG_LEVEL = 'ERROR'
+
 
 def report(hosts=None, np='MAX'):
-    import pandas as pd
-
     if not hosts:
         r = utils.report()
         df = pd.read_json(r)
