@@ -1,3 +1,9 @@
+0.3 - 2020-04-22
+==================
+- Use `datetime` instead of `pd.datetime`
+- Use `remoto` logger set level
+- Escape unresolved hosts
+
 0.2 - 2019-12-03
 ==================
 - Add timestamp to generated reports
